@@ -20,6 +20,20 @@
   padding: 15px;
 }
 
+tr, th {
+  padding: 5px;
+}
+
+td {
+  padding: 5px;
+}
+
+.Daily-cases-container {
+  margin: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

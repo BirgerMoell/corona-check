@@ -10,6 +10,7 @@ import {
 import Map from "./Map.js"
 import Check from "./Check.js"
 import Home from "./Home.js"
+import Timeline from "./Timeline.js"
 
 export default function App() {
   return (
@@ -18,6 +19,9 @@ export default function App() {
         <nav className="Nav-header">
             <div className="Nav-item">
               <Link to="/">Home</Link>
+            </div>
+            <div className="Nav-item">
+              <Link to="/Timeline">Timeline</Link>
             </div>
             <div className="Nav-item">
               <Link to="/Check">Check Symptoms</Link>
@@ -32,6 +36,9 @@ export default function App() {
         <Switch>
           <Route path="/map">
             <Map />
+          </Route>
+          <Route path="/timeline">
+            <Timeline />
           </Route>
           <Route path="/check">
             <Check />
