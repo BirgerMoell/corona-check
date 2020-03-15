@@ -1,22 +1,6 @@
 import React, { Fragment } from "react";
 import "./App.css";
-import timeline from "./sweden.json";
 import days from "./dates.json"
-
-const TimeLineItem = props => {
-
-  return (
-
-    <tr>
-      <td>{props.item}</td>
-      <td>{props.item.new_daily_cases}</td>
-      <td>{props.item.new_daily_deaths}</td>
-      <td>{props.item.total_cases}</td>
-      <td>{props.item.total_recoveries}</td>
-      <td>{props.item.total_deaths}</td>
-    </tr>
-  );
-};
 
 class Timeline extends React.Component {
   state = {};

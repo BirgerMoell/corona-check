@@ -18,16 +18,16 @@ export default function App() {
       <div>
         <nav className="Nav-header">
             <div className="Nav-item">
-              <Link to="/">Home</Link>
+              <Link to="">Home</Link>
             </div>
             <div className="Nav-item">
-              <Link to="/Timeline">Timeline</Link>
+              <Link to="timeline">Timeline</Link>
             </div>
             <div className="Nav-item">
-              <Link to="/Check">Check Symptoms</Link>
+              <Link to="check">Check Symptoms</Link>
             </div>
             <div className="Nav-item">
-              <Link to="/Map">Map</Link>
+              <Link to="map">Map</Link>
             </div>
         </nav>
 
