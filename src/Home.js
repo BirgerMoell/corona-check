@@ -3,7 +3,6 @@ import "./App.css";
 
 export const Display = props => {
   if (props.header && props.amount) {
-      console.log("the props are", props)
     return (
       <div className="Display-container">
         <h3>{props.header}</h3>
@@ -21,16 +20,28 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.getCoronaVirusData();
+    this.getCoronaVirusTimeLineData();
     setInterval(this.getCoronaVirusData(), 60000); // Time in milliseconds
   }
+
+  getCoronaVirusTimeLineData = async () => {
+    let result = await fetch(
+      "https://thevirustracker.com/timeline/map-data.json"
+    );
+    let resultJson = await result.json();
+    console.log("the timeline data is", resultJson);
+
+    this.setState({
+      timeline: resultJson
+    });
+  };
 
   getCoronaVirusData = async () => {
     let result = await fetch(
       "https://thevirustracker.com/free-api?global=stats"
     );
-    console.log("the result is", result);
     let resultJson = await result.json();
-    console.log("the json result is", resultJson);
+    //console.log("the json result is", resultJson);
 
     this.setState({
       results: resultJson.results[0]
