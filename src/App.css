@@ -37,6 +37,16 @@
   color: black;
 }
 
+.Check-header {
+  background: linear-gradient(#E4F3E5, #4CAE51);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
 .App-link {
   color: #61dafb;
 }

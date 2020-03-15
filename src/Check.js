@@ -4,7 +4,7 @@ import './App.css';
 function Check() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="Check-header">
         <p>
           Check Symptoms
         </p>

@@ -1,36 +1,63 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function Home() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Corona Cases
-        </p>
+class Home extends React.Component {
+  state = {};
 
-        <table>
-        <tr>
-            <th>Datum</th>
-            <th>Prognos</th>
-            <th>Utfalls</th>
-        </tr>
-        <tr>
-            <td>8/3</td>
-            <td>202</td>
-            <td>190</td>
-        </tr>
-        <tr>
-            <td>9/3</td>
-            <td>272</td>
-            <td>261</td>
-        </tr>
-        </table>
+  componentDidMount() {
+    this.getCoronaVirusData();
+    setInterval(this.getCoronaVirusData(), 60000); // Time in milliseconds
+  }
+
+  getCoronaVirusData = async () => {
+    let result = await fetch(
+      "https://thevirustracker.com/free-api?global=stats"
+    );
+    console.log("the result is", result);
+    let resultJson = await result.json();
+    console.log("the json result is", resultJson);
+
+    this.setState({
+      results: resultJson.results[0]
+    });
+  };
 
 
-      </header>
-    </div>
-  );
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p>Corona Cases</p>
+
+          {this.state.results && this.state.results.total_cases && (
+            <div>
+              <h4>Total Cases</h4>
+              <hr></hr>
+              <h4>{this.state.results.total_cases}</h4>
+            </div>
+          )}
+
+          {this.state.results && this.state.results.total_deaths && (
+            <div>
+              <h4>Total Deaths</h4>
+              <hr></hr>
+              <h4>{this.state.results.total_deaths}</h4>
+            </div>
+          )}
+
+          {this.state.results && this.state.results.total_new_cases_today && (
+            <div>
+              <h4>Total New Cases Today</h4>
+              <hr></hr>
+              <h4>{this.state.results.total_new_cases_today}</h4>
+            </div>
+          )}
+
+        </header>
+      </div>
+    );
+  }
 }
 
 export default Home;
