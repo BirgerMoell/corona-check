@@ -20,7 +20,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.getCoronaVirusData();
-    this.getCoronaVirusTimeLineData();
+    //this.getCoronaVirusTimeLineData();
     setInterval(this.getCoronaVirusData(), 60000); // Time in milliseconds
   }
 
@@ -41,7 +41,7 @@ class Home extends React.Component {
       "https://thevirustracker.com/free-api?global=stats"
     );
     let resultJson = await result.json();
-    //console.log("the json result is", resultJson);
+    console.log("the json result is", resultJson);
 
     this.setState({
       results: resultJson.results[0]
@@ -78,7 +78,7 @@ class Home extends React.Component {
           <div className="Data-container">
 
           <Display header={"Total Active Cases"} amount={this.state.results && this.state.results.total_active_cases}/>
-          <Display header={"Total Serious Cases"} amount={this.state.results && this.state.results.total_serius_cases}/>
+          <Display header={"Total Serious Cases"} amount={this.state.results && this.state.results.total_serious_cases}/>
             </div>
 
         </header>
