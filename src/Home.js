@@ -42,9 +42,25 @@ class Home extends React.Component {
     );
     let resultJson = await result.json();
     console.log("the json result is", resultJson);
+    let timestamp = new Date();
+    let time =
+      timestamp &&
+      timestamp.getFullYear() +
+        "-" +
+        "0" +
+        (timestamp.getMonth() + 1) +
+        "-" +
+        timestamp.getDate() +
+        " " +
+        timestamp.getHours() +
+        ":" +
+        timestamp.getMinutes() +
+        ":" +
+        timestamp.getSeconds();
 
     this.setState({
-      results: resultJson.results[0]
+      results: resultJson.results[0],
+      timestamp: time
     });
   };
 
@@ -54,33 +70,65 @@ class Home extends React.Component {
         <header className="App-header">
           <p>Corona Cases</p>
 
+          <div>
           <h2>Total</h2>
-
-          <div className="Data-container">
-
-          <Display header={"Total Cases"} amount={this.state.results && this.state.results.total_cases}/>
-          <Display header={"Total Recovered"} amount={this.state.results && this.state.results.total_recovered}/>
-          <Display header={"Total Unresolved"} amount={this.state.results && this.state.results.total_unresolved}/>
-          <Display header={"Total Deaths"} amount={this.state.results && this.state.results.total_deaths}/>
+          <h3>{this.state.results && this.state.results.total_cases}</h3>
+          <p>Last updated {this.state.timestamp}</p>
           </div>
 
+
+          <div className="Data-container">
+            <Display
+              header={"Total Cases"}
+              amount={this.state.results && this.state.results.total_cases}
+            />
+            <Display
+              header={"Total Recovered"}
+              amount={this.state.results && this.state.results.total_recovered}
+            />
+            <Display
+              header={"Total Unresolved"}
+              amount={this.state.results && this.state.results.total_unresolved}
+            />
+            <Display
+              header={"Total Deaths"}
+              amount={this.state.results && this.state.results.total_deaths}
+            />
+          </div>
 
           <h2>Daily</h2>
 
           <div className="Data-container">
-
-          <Display header={"Total New Cases Today"} amount={this.state.results && this.state.results.total_new_cases_today}/>
-          <Display header={"Total New Deaths Today"} amount={this.state.results && this.state.results.total_new_deaths_today}/>
+            <Display
+              header={"Total New Cases Today"}
+              amount={
+                this.state.results && this.state.results.total_new_cases_today
+              }
+            />
+            <Display
+              header={"Total New Deaths Today"}
+              amount={
+                this.state.results && this.state.results.total_new_deaths_today
+              }
+            />
           </div>
 
           <h2>Active</h2>
 
           <div className="Data-container">
-
-          <Display header={"Total Active Cases"} amount={this.state.results && this.state.results.total_active_cases}/>
-          <Display header={"Total Serious Cases"} amount={this.state.results && this.state.results.total_serious_cases}/>
-            </div>
-
+            <Display
+              header={"Total Active Cases"}
+              amount={
+                this.state.results && this.state.results.total_active_cases
+              }
+            />
+            <Display
+              header={"Total Serious Cases"}
+              amount={
+                this.state.results && this.state.results.total_serious_cases
+              }
+            />
+          </div>
         </header>
       </div>
     );
