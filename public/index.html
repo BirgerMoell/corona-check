@@ -85,6 +85,8 @@
         console.log("the toal is", total);
         document.title = total + " Infected";
         document.querySelector('meta[name="description"]').setAttribute("content", total + " Corona virus infections. " + deaths + " deaths.");
+        document.querySelector('meta[property="og:description"]').setAttribute("content", total + " Corona virus infections. " + deaths + " deaths.");
+        document.querySelector('meta[property="twitter:description"]').setAttribute("content", total + " Corona virus infections. " + deaths + " deaths.");
       };
 
       getCoronaVirusData();
