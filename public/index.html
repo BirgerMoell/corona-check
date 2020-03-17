@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Real time corona outbreak data"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -81,8 +81,10 @@
         let resultJson = await result.json();
         console.log("the index result is", resultJson);
         let total = resultJson.results[0].total_cases;
+        let deaths = resultJson.results[0].total_deaths;
         console.log("the toal is", total);
         document.title = total + " Infected";
+        document.querySelector('meta[name="description"]').setAttribute("content", total + " Corona virus infections. " + deaths + " deaths.");
       };
 
       getCoronaVirusData();
