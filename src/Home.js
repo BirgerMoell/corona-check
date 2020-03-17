@@ -71,8 +71,7 @@ class Home extends React.Component {
           <p>Corona Cases</p>
 
           <div>
-          <h2>Total</h2>
-          <h3>{this.state.results && this.state.results.total_cases}</h3>
+          <h3 className="corona-cases">{this.state.results && this.state.results.total_cases}</h3>
           <p>Last updated {this.state.timestamp}</p>
           </div>
 

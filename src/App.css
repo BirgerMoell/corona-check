@@ -16,6 +16,11 @@
   background-color: #E4F3E5;
 }
 
+.corona-cases {
+  font-size: 120px;
+  color: red;
+}
+
 .Nav-item {
   padding: 15px;
 }
